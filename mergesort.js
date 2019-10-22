@@ -11,13 +11,32 @@ function split(wholeArray) {
 }
 
 function merge(splitArray) {
-  let builder = [];
+  splitArray = splitArray[0].concat(splitArray[1]);
 
-  for (let i = 0; i < splitArray.length; i++) {
-    let element = splitArray[i];
-    builder.push(...element);
-    console.log(...element);
-    console.log(builder);
+  return splitArray;
+}
+
+function mergeSort(arr) {
+  // [1, 3, 5, 2, 4]
+
+  if (arr.length <= 1) {
+    return arr;
   }
-  return builder;
+
+  let arrOfArrays = [];
+  for (let i = 0; i < arr.length; i++) {
+    let element = arr[i];
+    while (element.length > 1) {
+      split(element);
+    }
+    arrOfArrays.push([element]);
+  }
+
+  for (let i = 0; i < arrOfArrays.length; i++) {
+    if (arrOfArrays[i] < arrOfArrays[i + 1]) {
+      merge([arrOfArrays[i], arrOfArrays[i + 1]]);
+    } else {
+      merge([arrOfArrays[i + 1], arrOfArrays[i]]);
+    }
+  }
 }

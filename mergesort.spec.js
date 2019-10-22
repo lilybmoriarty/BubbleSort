@@ -33,3 +33,9 @@ describe("Merge function", function() {
     expect(merge([[1, 2], [3]])).toEqual([1, 2, 3]);
   });
 });
+
+describe("MergeSort function", function() {
+  it("is able to merge and sort a single array", function() {
+    expect(mergeSort([1, 3, 5, 2, 4])).toEqual([1, 2, 3, 4, 5]);
+  });
+});
