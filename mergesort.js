@@ -9,3 +9,15 @@ function split(wholeArray) {
 
   return [firstHalf, secondHalf];
 }
+
+function merge(splitArray) {
+  let builder = [];
+
+  for (let i = 0; i < splitArray.length; i++) {
+    let element = splitArray[i];
+    builder.push(...element);
+    console.log(...element);
+    console.log(builder);
+  }
+  return builder;
+}
